@@ -1,6 +1,11 @@
 # Objective
-Create a React + TypeScript application to display data in a grid format. [Setup](https://github.com/shubhammittalkv1/drag-drop-overlay?tab=readme-ov-file#setup)
+Create a React + TypeScript application to display data in a grid format. [Setup](https://github.com/shubhammittalkv1/drag-drop-overlay?tab=readme-ov-file#setup) and [Important Note](https://github.com/shubhammittalkv1/drag-drop-overlay?tab=readme-ov-file#important-note)
 
+
+## Important Links:
+
+1. [Running Application URL](https://drag-drop-overlay.vercel.app/)
+2. [Demo Video](https://www.loom.com/share/f6a2ed696db245e09e18677f6c27bed1?sid=7b7a2c77-cb3b-4d1b-aee1-29e74d364256)
 ## Integration Requirements and Features:
 
 1. Drag and Drop: Allow users to drag and drop data cards.
@@ -33,14 +38,9 @@ Additionally, I set a 5-second timer to monitor for user-initiated changes, such
 
 To optimize browser performance, I clear this timer when the component is no longer active, such as when the user leaves the page.
 
-## IMPORTANT NOTE:
+## Architecture Diagram
 
-Because of adding https://github.com/mswjs/msw into the application. "Cannot read properties of undefined (reading 'url')" this error is coming while refreshing the page or opening multiple tabs in the same browser. This is an open bug in the library, For reference : [check this](https://github.com/mswjs/msw/issues/2146)
-
-Resolution:
-1. Check the application again in the incognito mode or
-2. Close all the tabs of the application in the browser and reopen the application in the single tab.
-
+![Alt text](https://res.cloudinary.com/dankrz15s/image/upload/v1720361389/zania-assignment/architecture_zhmqxz.jpg)
 ## Setup
 
 1. Clone the Repository
@@ -59,3 +59,11 @@ npm install
 ```
 npm start
 ```
+
+## IMPORTANT NOTE:
+
+Because of adding https://github.com/mswjs/msw into the application. "Cannot read properties of undefined (reading 'url')" this error is coming while refreshing the page or opening multiple tabs in the same browser. This is an open bug in the library, For reference : [check this](https://github.com/mswjs/msw/issues/2146)
+
+Resolution:
+1. Check the application again in the incognito mode or
+2. Close all the tabs of the application in the browser and reopen the application in the single tab.
