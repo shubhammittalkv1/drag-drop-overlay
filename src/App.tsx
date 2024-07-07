@@ -6,6 +6,7 @@ import Card from './components/card';
 import LocalStorageService from './core/services/localStorageService';
 import OverlayComponent from './components/overlayComponent';
 import { CardValue } from './core/dictionary/types';
+import TimerComponent from './components/timeComponent';
 
 function App() {
   // Defining state variables
@@ -18,6 +19,8 @@ function App() {
   const [showOverlay, setShowOverlay] = useState<boolean>(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>("");
   const isDataChangedRef = useRef<boolean>(false);
+  const [lastSavedTime, setLastSavedTime] = useState<number | null>(null);
+  const [isLoader, setIsLoader] = useState<boolean>(false);
   // End of the above code
 
   // Below code is used when data and isDataChanged Variable is updated
@@ -40,8 +43,13 @@ function App() {
 
     timeInterval = setInterval(() => {
       if (isDataChangedRef.current) {
-        localStorageService.setCurrentStateData(dataRef.current);
-        setIsDataChanged(false);
+        setIsLoader(true);
+        setTimeout(() => {
+          localStorageService.setCurrentStateData(dataRef.current);
+          setLastSavedTime(new Date().getTime());
+          setIsDataChanged(false);
+          setIsLoader(false);
+        }, 2000)
       }
     }, 5000);
 
@@ -97,14 +105,14 @@ function App() {
     event.preventDefault();
     setDestinationDraggedId(indexValue);
   };
-  
+
   // Mapping the new data when drop is done
   const onDragEnd = (event: React.DragEvent<HTMLDivElement>, indexValue: number) => {
     event.preventDefault();
     mapChangedData(sourceDraggedId, destinationDraggedId);
     setIsDataChanged(true);
   };
-  
+
   // Getting the Source Card Details 
   const onDrag = (event: React.DragEvent<HTMLDivElement>, indexValue: number) => {
     event.preventDefault();
@@ -129,12 +137,15 @@ function App() {
 
   return (
     <div className="container">
+      <div className="d-flex justify-content-end align-items-center mt-3">
+        {!!lastSavedTime ? <TimerComponent lastTime={lastSavedTime} isLoader={isLoader}></TimerComponent> : <div className="timer-container alert alert-primary">Auto Save Inactive</div>}
+      </div>
       <div
         onDrop={drop}
         onDragOver={allowDrop}
         className="layout-container"
-      > 
-      {/* Below code is for iterating the cards in the grid format */}
+      >
+        {/* Below code is for iterating the cards in the grid format */}
         {!!data && data.map((item, index) => (
           <div
             className="card-container"
@@ -147,10 +158,10 @@ function App() {
             <Card cardData={item} indexValue={index} openImageOverLay={openImageOverLay} />
           </div>
         ))}
-      {/* End of the above code */}
+        {/* End of the above code */}
       </div>
       {/* Below code is for the Overlay Functionality */}
-      {showOverlay && 
+      {showOverlay &&
         <OverlayComponent hideOverlay={hideOverlay} imageUrl={selectedImageUrl}></OverlayComponent>
       }
       {/* End of the above code */}

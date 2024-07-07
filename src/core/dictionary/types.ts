@@ -22,3 +22,10 @@ export interface OverlayComponentProps {
     hideOverlay: () => void;
 }
 // End of the above code
+
+// Below code is the interface for the timer component
+export interface TimerComponentProps {
+    lastTime: number | null;
+    isLoader: boolean
+}
+// End of the above code
