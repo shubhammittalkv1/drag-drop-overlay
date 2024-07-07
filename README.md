@@ -38,7 +38,7 @@ Additionally, I set a 5-second timer to monitor for user-initiated changes, such
 
 To optimize browser performance, I clear this timer when the component is no longer active, such as when the user leaves the page.
 
-## Architecture Diagram
+## Application Structure Diagram
 
 ![Alt text](https://res.cloudinary.com/dankrz15s/image/upload/v1720361389/zania-assignment/architecture_zhmqxz.jpg)
 ## Setup
