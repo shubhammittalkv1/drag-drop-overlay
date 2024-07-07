@@ -43,6 +43,7 @@ To optimize browser performance, I clear this timer when the component is no lon
 ![Alt text](https://res.cloudinary.com/dankrz15s/image/upload/v1720361389/zania-assignment/architecture_zhmqxz.jpg)
 ## Setup
 
+Using NPM: 
 1. Clone the Repository
 ```
 git clone https://github.com/shubhammittalkv1/drag-drop-overlay.git
@@ -58,6 +59,22 @@ npm install
 4. Run the app:
 ```
 npm start
+```
+
+Using Docker:
+1. Clone the Repository
+```
+git clone https://github.com/shubhammittalkv1/drag-drop-overlay.git
+```
+2. Go inside the directory
+```
+cd drag-drop-overlay
+```
+3. Make sure your docker application is start and running on the local machine
+
+4. Run the app:
+```
+docker-compose up --build
 ```
 
 ## IMPORTANT NOTE:
