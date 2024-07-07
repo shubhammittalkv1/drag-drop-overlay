@@ -1,5 +1,5 @@
 # Objective
-Create a React + TypeScript application to display data in a grid format.
+Create a React + TypeScript application to display data in a grid format. [Setup](https://github.com/shubhammittalkv1/drag-drop-overlay?tab=readme-ov-file#setup)
 
 ## Integration Requirements and Features:
 
