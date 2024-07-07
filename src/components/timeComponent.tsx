@@ -28,7 +28,7 @@ const TimerComponent: React.FC<TimerComponentProps> = ({ lastTime, isLoader }) =
     // End of the above code
 
     return (
-        <div className="timer-container alert alert-primary">
+        <div className="timer-container alert alert-primary mb-0">
             {isLoader === true ? <p className="m-0 d-flex justify-content-center align-items-center gap-2">Loading <ClipLoader size={24} /></p> : <p className="m-0">Last Save {timeDiff} Ago</p>}
         </div>
     );
